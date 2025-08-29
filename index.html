@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Arash - Mid Senior Python Developer</title>
+  <style>
+    body {
+      background-color: #000;
+      color: #0f0;
+      font-family: 'Courier New', Courier, monospace;
+      padding: 2rem;
+      line-height: 1.5;
+    }
+    .prompt::before { content: "➜ "; }
+    h1, h2, h3 { margin: 0.5rem 0; }
+    section { margin-bottom: 2rem; }
+    ul { list-style: none; padding-left: 0; }
+    ul li::before { content: "• "; }
+    a { color: #0f0; text-decoration: none; }
+    a:hover { text-decoration: underline; }
+    .highlight { color: #0ff; }
+    /* Matrix background canvas styling */
+    #matrix {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      pointer-events: none;
+      z-index: -1;
+      background-color: #000;
+    }
+  </style>
+</head>
+<body>
+  <canvas id="matrix"></canvas>
+  <h1>Arash <span class="highlight">▶</span> Mid Senior Python Developer</h1>
+    <p class="prompt"><strong>Summary:</strong> Passionate Python developer with 6 years of hands-on experience designing and deploying scalable microservices. Expert in Celery-managed task queues under heavy load, database tuning, containerized environments, and DevOps automation using Bash&nbsp;&amp;&nbsp;CI/CD pipelines.</p>
+
+  <section>
+    <h2 class="prompt">Technical Skills</h2>
+    <ul>
+      <li><strong>Python &amp; Frameworks:</strong> FastAPI, Flask, Celery (6 years exp, expert level in asynchronous and distributed tasks)
+      <li><strong>Databases:</strong> PostgreSQL (schema design &amp; optimization), pgbouncer connection pooling, Redis caching &amp; pub/sub</li>
+      <li><strong>Containerization:</strong> Docker, Docker Compose; deployed multi-container apps in production</li>
+      <li><strong>Orchestration &amp; Messaging:</strong> RabbitMQ with Celery; built resilient worker clusters and monitoring</li>
+      <li><strong>ORM:</strong> SQLAlchemy—designed complex relationships, migrations, and performance tuning</li>
+      <li><strong>Microservices:</strong> Architected RESTful &amp; WebSocket APIs; modular codebases with clear boundaries</li>
+      <li><strong>Scripting &amp; DevOps:</strong> Bash automation, CI/CD pipelines, server provisioning on Ubuntu 24.04</li>
+      <li><strong>AI Integration:</strong> Leveraging AI tools to generate code snippets, automate tests, and accelerate development</li>
+      <li><strong>Computer Vision&nbsp;&amp; ML:</strong> Built a beginner-level OpenCV photo-detection app; experimenting with PyTorch &amp; vision transformers</li>
+    </ul>
+  </section>
+
+  <section>
+    <h2 class="prompt">Professional Experience</h2>
+    <h3>Freelance Python Developer <span class="highlight">(2019 — Present)</span></h3>
+    <ul>
+      <li>Developed a high-throughput analytics service processing >70m tasks/day using Celery &amp; RabbitMQ.</li>
+      <li>Optimized PostgreSQL queries, reducing average response time by 40% through indexing and pgbouncer pooling.</li>
+      <li>Containerized applications with Docker; orchestrated multi-service deployments via Docker Compose and custom scripts.</li>
+      <li>Built REST APIs with FastAPI; implemented JWT authentication, OpenAPI docs, and WebSocket endpoints.</li>
+      <li>Integrated Redis to handle caching and real-time pub/sub messaging, achieving sub-50ms latency.</li>
+    </ul>
+  </section>
+
+  <section>
+    <h2 class="prompt">Key Achievements</h2>
+    <ul>
+      <li>Scaled automation platform to handle 70 M+ requests with 99.9 % uptime.</li>
+      <li>Led migration to async FastAPI architecture, reducing P99 latency by 35 %.</li>
+    </ul>
+  </section>
+
+  <section>
+    <h2 class="prompt">Entrepreneurial Vision</h2>
+    <p>Currently ideating multiple AI-driven product concepts and seeking investor partnerships to develop MVPs.</p>
+  </section>
+
+  <section>
+    <h2 class="prompt">Contact</h2>
+    <p>Email: <a href="mailto:arashm695@gmail.com">arashm695@gmail.com</a><br>
+       GitHub: <a href="https://github.com/arashm404" target="_blank">github.com/arashm404</a><br>
+    </p>
+  </section>
+</body>
+  <script>
+    const canvas = document.getElementById('matrix');
+    const ctx = canvas.getContext('2d');
+    let width = canvas.width = window.innerWidth;
+    let height = canvas.height = window.innerHeight;
+    const columns = Math.floor(width / 20);
+    const drops = Array(columns).fill(1);
+
+    function draw() {
+      ctx.fillStyle = 'rgba(0, 0, 0, 0.05)';
+      ctx.fillRect(0, 0, width, height);
+      ctx.fillStyle = '#006400';
+      ctx.font = '16px Courier New';
+      for (let i = 0; i < drops.length; i++) {
+        const text = String.fromCharCode(0x30A0 + Math.random() * 96);
+        ctx.fillText(text, i * 20, drops[i] * 20);
+        if (drops[i] * 20 > height && Math.random() > 0.975) {
+          drops[i] = 0;
+        }
+        drops[i]++;
+      }
+    }
+
+    setInterval(draw, 50);
+    window.addEventListener('resize', () => {
+      width = canvas.width = window.innerWidth;
+      height = canvas.height = window.innerHeight;
+    });
+  </script>
+</html>
